@@ -35,10 +35,12 @@ const Typography = React.lazy(() => import('./views/Theme/Typography'));
 const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));
+const Rooms = React.lazy(() => import('./views/Rooms/Rooms'));
+const Room = React.lazy(() => import('./views/Rooms/Room'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
-  { path: '/odalar', exact: true, name: 'Home' },
+  { path: '/o', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },
@@ -79,6 +81,8 @@ const routes = [
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
+  { path: '/rooms', exact: true,  name: 'Rooms', component: Rooms },
+  { path: '/rooms/:id', exact: true, name: 'Room Details', component: Room },
 ];
 
 export default routes;

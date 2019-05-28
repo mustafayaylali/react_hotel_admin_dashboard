@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
-import usersData from './UsersData'
+import roomsData from './RoomsData';
 
-class User extends Component {
+class Room extends Component {
 
   render() {
 
-    const user = usersData.find( user => user.id.toString() === this.props.match.params.id)
+    const room = roomsData.find( room => room.id.toString() === this.props.match.params.id)
 
-    const userDetails = user ? Object.entries(user) : [['id', (<span><i className="text-muted icon-ban"></i> Not found</span>)]]
+    const roomDetails = room ? Object.entries(room) : [['id', (<span><i className="text-muted icon-ban"></i> Not found</span>)]]
 
     return (
       <div className="animated fadeIn">
@@ -23,7 +23,7 @@ class User extends Component {
                   <Table responsive striped hover>
                     <tbody>
                       {
-                        userDetails.map(([key, value]) => {
+                        roomDetails.map(([key, value]) => {
                           return (
                             <tr key={key}>
                               <td>{`${key}:`}</td>
@@ -43,4 +43,4 @@ class User extends Component {
   }
 }
 
-export default User;
+export default Room;

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { CardFooter, Col, Row, Progress } from 'reactstrap';
+import Widget04 from '../Widgets/Widget04';
 
-import usersData from './UsersData'
+import roomsData from './RoomsData'
 
-function UserRow(props) {
-  const user = props.user
-  const userLink = `/users/${user.id}`
+function RoomRow(props) {
+  const room = props.room
+  const roomLink = `/rooms/${room.id}`
 
   const getBadge = (status) => {
     return status === 'Active' ? 'success' :
@@ -17,13 +17,9 @@ function UserRow(props) {
   }
 
   return (
-    <tr key={user.id.toString()}>
-      <th scope="row"><Link to={userLink}>{user.id}</Link></th>
-      <td><Link to={userLink}>{user.name}</Link></td>
-      <td>{user.registered}</td>
-      <td>{user.role}</td>
-      <td><Link to={userLink}><Badge color={getBadge(user.status)}>{user.status}</Badge></Link></td>
-    </tr>
+    <Col sm="6" md="2">
+      <Widget04 icon="icon-people" color={getBadge(room.status)} header={room.name} value="50" invert>{room.registered}</Widget04>
+    </Col>
   )
 }
 
@@ -31,36 +27,42 @@ class Users extends Component {
 
   render() {
 
-    const userList = usersData.filter((user) => user.id < 10)
+    const roomList = roomsData.filter((room) => room.id < 10)
 
     return (
       <div className="animated fadeIn">
+        <CardFooter>
+                <Row className="text-center">
+                  <Col sm={12} md className="mb-sm-2 mb-0">
+                    <div className="text-muted">Uygun</div>
+                    <strong>12 Oda (40%)</strong>
+                    <Progress className="progress-xs mt-2" color="success" value="40" />
+                  </Col>
+                  <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
+                    <div className="text-muted">Temizleniyor</div>
+                    <strong>2 Oda (10%)</strong>
+                    <Progress className="progress-xs mt-2" color="info" value="20" />
+                  </Col>
+                  <Col sm={12} md className="mb-sm-2 mb-0">
+                    <div className="text-muted">Rezervasyon</div>
+                    <strong>5 Oda (30%)</strong>
+                    <Progress className="progress-xs mt-2" color="danger" value="80" />
+                  </Col>
+                  <Col sm={12} md className="mb-sm-2 mb-0">
+                    <div className="text-muted">Dolu</div>
+                    <strong>4 Oda (20%)</strong>
+                    <Progress className="progress-xs mt-2" color="warning" value="60" />
+                  </Col>
+                </Row>
+              </CardFooter>
+
+         {//icon-lock  icon-like icon-phone icon-emotsmile
+         } 
+         <br></br>
         <Row>
-          <Col xl={6}>
-            <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i> Users <small className="text-muted">example</small>
-              </CardHeader>
-              <CardBody>
-                <Table responsive hover>
-                  <thead>
-                    <tr>
-                      <th scope="col">id</th>
-                      <th scope="col">name</th>
-                      <th scope="col">registered</th>
-                      <th scope="col">role</th>
-                      <th scope="col">status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {userList.map((user, index) =>
-                      <UserRow key={index} user={user}/>
-                    )}
-                  </tbody>
-                </Table>
-              </CardBody>
-            </Card>
-          </Col>
+          {roomList.map((room, index) =>
+            <RoomRow key={index} room={room} />
+          )}
         </Row>
       </div>
     )
