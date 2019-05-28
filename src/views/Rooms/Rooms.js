@@ -40,14 +40,13 @@ class Users extends Component {
         <CardFooter>
           <Row className="text-center">
             <Col sm={12} md className="mb-sm-2 mb-0">
-              <Button size="lg" block outline color="success" style={{display:this.state.normalButton}}>Boş : 12</Button>
-              <Button size="lg" className="btn-brand mr-1 mb-1" color="success" style={{display:this.state.selectButton}}>
+              <Button size="lg" className="btn-brand mr-1 mb-1" color="success" style={{display:this.state.normalButton}}>
                 <i className="fa fa-thumbs-up"></i>
                 <span style={{ fontSize: 15 }}>Boş : 12 </span>
               </Button>
             </Col>
             <Col sm={12} md className="mb-sm-2 mb-0">
-              <Button size="lg" className="btn-brand mr-1 mb-1" color="warning" style={{display:this.state.visible}}>
+              <Button size="lg" className="btn-brand mr-1 mb-1" color="warning" style={{display:this.state.normalButton}}>
                 <i class="fa fa-hourglass-half"></i>
                 <span style={{ fontSize: 15 }}>Temizleniyor : 4 </span></Button>
             </Col>
