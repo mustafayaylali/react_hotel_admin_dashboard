@@ -34,7 +34,7 @@ class Users extends Component {
         <CardFooter>
                 <Row className="text-center">
                   <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">Uygun</div>
+                    <div className="text-muted">CHART KOY YUVARLAK</div>
                     <strong>12 Oda (40%)</strong>
                     <Progress className="progress-xs mt-2" color="success" value="40" />
                   </Col>
