@@ -3,7 +3,7 @@ import { CardFooter, Col, Row, Progress, Button } from 'reactstrap';
 import Widget04 from '../Widgets/Widget04';
 
 import roomsData from './RoomsData'
-import { all } from 'q';
+import { Bar, Doughnut, Line, Pie, Polar, Radar } from 'react-chartjs-2';
 
 function RoomRow(props) {
   const room = props.room
@@ -19,7 +19,7 @@ function RoomRow(props) {
 
   return (
     <Col sm="6" md="2">
-      <Widget04 icon="icon-people" color={getBadge(room.status)} header={room.name} value="50" invert>{room.registered}</Widget04>
+      <Widget04 icon="icon-people" color={getBadge(room.status)} header={room.name} value="0" invert>{room.registered}</Widget04>
     </Col>
   )
 }
@@ -29,65 +29,64 @@ class Users extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showComponent: true,
-      statusName:'All'
+      date: new Date().toLocaleString(),
+      statusName: 'All'
     };
     this._onButtonClick = this._onButtonClick.bind(this);
   }
 
   _onButtonClick(status) {
     this.setState({
-      showComponent: false,
-      statusName:status
+      statusName: status
     });
   }
 
 
   render() {
     var roomList;
-    if(this.state.statusName=='All'){
+    if (this.state.statusName == 'All') {
       roomList = roomsData.filter((room) => room.id < 10) //gösterilecek veri adedi
-    }else
-    {
-      roomList = roomsData.filter((room) => room.id < 10 & room.status==this.state.statusName) //gösterilecek veri adedi
+    } else {
+      roomList = roomsData.filter((room) => room.id < 10 & room.status == this.state.statusName) //gösterilecek veri adedi
     }
-    
+
 
     return (
-      <div className="animated fadeIn">
-        <CardFooter>
-          <Row className="text-center">
-            <Col sm={12} md className="mb-sm-2 mb-0">
-              <Button size="lg" className="btn-brand mr-1 mb-1" color="success" onClick={this._onButtonClick.bind(this,'Active')}>
+      <div>
+       
+              <Button size="lg" style={{marginInlineStart:5}} className="btn-brand mr-1 mb-1" color="success" onClick={this._onButtonClick.bind(this, 'Active')}>
                 <i className="fa fa-thumbs-up"></i>
                 <span style={{ fontSize: 15 }}>Boş : 12 </span>
               </Button>
-            </Col>
-            <Col sm={12} md className="mb-sm-2 mb-0">
-              <Button size="lg" className="btn-brand mr-1 mb-1" color="warning" onClick={this._onButtonClick.bind(this,'Pending')}>
+                      
+              <Button size="lg" style={{marginInlineStart:15}} className="btn-brand mr-1 mb-1" color="warning" onClick={this._onButtonClick.bind(this, 'Pending')}>
                 <i class="fa fa-hourglass-half"></i>
                 <span style={{ fontSize: 15 }}>Temizleniyor : 4 </span></Button>
-            </Col>
-            <Col sm={12} md className="mb-sm-2 mb-0">
-              <Button size="lg" className="btn-brand mr-1 mb-1" color="danger" onClick={this._onButtonClick.bind(this,'Banned')}>
+                      
+              <Button size="lg" style={{marginInlineStart:15}} className="btn-brand mr-1 mb-1" color="danger" onClick={this._onButtonClick.bind(this, 'Banned')}>
                 <i class="fa fa-lock"></i>
                 <span style={{ fontSize: 15 }}>Dolu : 6 </span></Button>
-            </Col>
-            <Col sm={12} md className="mb-sm-2 mb-0">
-              <Button size="lg" className="btn-brand mr-1 mb-1" color="primary" onClick={this._onButtonClick.bind(this,'Inactive')}>
+            
+            
+              <Button size="lg" style={{marginInlineStart:15}} className="btn-brand mr-1 mb-1" color="primary" onClick={this._onButtonClick.bind(this, 'Inactive')}>
                 <i class="fa fa-phone"></i>
                 <span style={{ fontSize: 15 }}>Rezerve : 2  </span></Button>
-            </Col>
-            <Col sm={12} md className="mb-sm-2 mb-0">
-              <Button size="lg" className="btn-brand mr-1 mb-1" color="secondary" onClick={this._onButtonClick.bind(this,'All')}>
+          
+           
+              <Button size="lg" style={{marginInlineStart:15}} className="btn-brand mr-1 mb-1" color="secondary" onClick={this._onButtonClick.bind(this, 'All')}>
                 <i class="fa fa-key"></i>
                 <span style={{ fontSize: 15 }}>Hepsi : 16  </span></Button>
-            </Col>
-          </Row>
-        </CardFooter>
 
-        {//icon-lock  icon-like icon-phone icon-emotsmile
-        }
+              {/*<h4>{this.state.date}  </h4 >*/}
+                   
+              <Progress multi style={{marginTop:10}}>
+                <Progress bar color="danger" value="15"></Progress>
+                <Progress bar color="primary" value="30"></Progress>
+                <Progress bar color="warning" value="25"></Progress>
+                <Progress bar color="success" value="30"></Progress>
+              </Progress>
+     
+
         <br></br>
         <Row>
           {roomList.map((room, index) =>
