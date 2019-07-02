@@ -30,16 +30,28 @@ class DefaultHeader extends Component {
 
         <Nav className="d-md-down-none" navbar>
         <NavItem className="px-3">
-            <NavLink to="/rooms" className="nav-link">Odalar</NavLink>
+            <NavLink to="/rooms" className="nav-link">Oda Planı</NavLink>
           </NavItem>
           <NavItem className="px-3">
-            <NavLink to="/dashboard" className="nav-link" >Dashboard</NavLink>
+            <NavLink to="/dashboard" className="nav-link" >Misafirler</NavLink>
           </NavItem>
           <NavItem className="px-3">
-            <Link to="/users" className="nav-link">Kullanıcılar</Link>
+            <Link to="/users" className="nav-link">Rezervasyon</Link>
           </NavItem>
           <NavItem className="px-3">
-            <NavLink to="#" className="nav-link">Ayarlar</NavLink>
+            <NavLink to="#" className="nav-link">Blokaj</NavLink>
+          </NavItem>
+          <NavItem className="px-3">
+            <NavLink to="#" className="nav-link">Satışlar</NavLink>
+          </NavItem>
+          <NavItem className="px-3">
+            <NavLink to="#" className="nav-link">Aktif Folyolar</NavLink>
+          </NavItem>
+          <NavItem className="px-3">
+            <NavLink to="#" className="nav-link">Kasa</NavLink>
+          </NavItem>
+          <NavItem className="px-3">
+            <NavLink to="#" className="nav-link">Raporlar</NavLink>
           </NavItem>
         </Nav>
         <Nav className="ml-auto" navbar>

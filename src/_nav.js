@@ -11,7 +11,7 @@ export default {
     },
     {
       title: true,
-      name: 'OTEL',
+      name: 'Üst Menü',
       wrapper: {            // optional wrapper object
         element: '',        // required valid HTML5 element tag
         attributes: {}        // optional valid JS object with JS API naming ex: { className: "my-class", style: { fontFamily: "Verdana" }, id: "my-id"}
@@ -19,12 +19,79 @@ export default {
       class: ''             // optional class names space delimited list for title item ex: "text-center"
     },
     {
-      name: 'Colors',
+      name: 'Satış',
       url: '/theme/colors',
       icon: 'icon-drop',
     },
     {
-      name: 'Typography',
+      name: 'Kanal Yönetimi',
+      url: '/theme/typography',
+      icon: 'icon-pencil',
+    },
+    {
+      name: 'Ön Büro',
+      url: '/buttons',
+      icon: 'icon-cursor',
+      children: [
+        {
+          name: 'Buttons',
+          url: '/buttons/buttons',
+          icon: 'icon-cursor',
+        },
+        {
+          name: 'Button dropdowns',
+          url: '/buttons/button-dropdowns',
+          icon: 'icon-cursor',
+        },
+        {
+          name: 'Button groups',
+          url: '/buttons/button-groups',
+          icon: 'icon-cursor',
+        },
+        {
+          name: 'Brand Buttons',
+          url: '/buttons/brand-buttons',
+          icon: 'icon-cursor',
+        },
+      ],
+    },
+    {
+      name: 'Oda Bakım',
+      url: '/theme/typography',
+      icon: 'icon-pencil',
+    },
+    {
+      name: 'Kasa',
+      url: '/theme/typography',
+      icon: 'icon-pencil',
+    },
+    {
+      name: 'Gün Sonu',
+      url: '/theme/typography',
+      icon: 'icon-pencil',
+    },
+    {
+      name: 'Hareketler',
+      url: '/theme/typography',
+      icon: 'icon-pencil',
+    },
+    {
+      name: 'Raporlar',
+      url: '/theme/typography',
+      icon: 'icon-pencil',
+    },
+    {
+      name: 'Araçlar',
+      url: '/theme/typography',
+      icon: 'icon-pencil',
+    },
+    {
+      name: 'Cari',
+      url: '/theme/typography',
+      icon: 'icon-pencil',
+    },
+    {
+      name: 'Yardım',
       url: '/theme/typography',
       icon: 'icon-pencil',
     },
@@ -120,33 +187,6 @@ export default {
           name: 'Tooltips',
           url: '/base/tooltips',
           icon: 'icon-puzzle',
-        },
-      ],
-    },
-    {
-      name: 'Buttons',
-      url: '/buttons',
-      icon: 'icon-cursor',
-      children: [
-        {
-          name: 'Buttons',
-          url: '/buttons/buttons',
-          icon: 'icon-cursor',
-        },
-        {
-          name: 'Button dropdowns',
-          url: '/buttons/button-dropdowns',
-          icon: 'icon-cursor',
-        },
-        {
-          name: 'Button groups',
-          url: '/buttons/button-groups',
-          icon: 'icon-cursor',
-        },
-        {
-          name: 'Brand Buttons',
-          url: '/buttons/brand-buttons',
-          icon: 'icon-cursor',
         },
       ],
     },

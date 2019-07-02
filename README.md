@@ -11,7 +11,10 @@ $ cd my-project
 
 # install app's dependencies
 $ npm install
+
+# start project
+$ npm start
+
 ```
 
 # dev server  with hot reload at http://localhost:5000
-$ npm start
